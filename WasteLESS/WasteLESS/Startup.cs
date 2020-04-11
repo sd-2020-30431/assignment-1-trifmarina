@@ -13,7 +13,7 @@ using Microsoft.Extensions.Logging;
 
 namespace WasteLESS
 {
-    public class Startup
+    public class Startup  
     {
         public Startup(IConfiguration configuration)
         {
@@ -40,7 +40,7 @@ namespace WasteLESS
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            //app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

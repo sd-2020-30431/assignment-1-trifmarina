@@ -22,6 +22,12 @@ namespace WasteLESS.Services
             return u;
         }
 
+        public User getUserByUsername(string _username)
+        {
+            User u = _userContext.Users.Where(p => p.Username == _username).FirstOrDefault();
+            return u;
+        }
+
         public void deleteUser(int id)
         {
             User u = _userContext.Users.Where(p => p.UserId == id).FirstOrDefault();

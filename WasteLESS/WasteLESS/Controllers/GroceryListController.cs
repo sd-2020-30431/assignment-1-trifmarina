@@ -16,18 +16,18 @@ namespace WasteLESS.Controllers
         private GroceryListRepo _groceryRepository = new GroceryListRepo();   
 
         // GET: api/GroceryList
-        [HttpGet]
-        public IEnumerable<GroceryList> Get()
-        {
-            return _groceryRepository.getAllGroceryLists();
-        }
+        //[HttpGet]
+        //public IEnumerable<GroceryList> Get()
+        //{
+        //    return _groceryRepository.getAllGroceryLists();
+        //}
 
         // GET: api/GroceryList/5
-        [HttpGet("{id}", Name = "Get")]
-        public GroceryList Get(int id)
-        {
-            return _groceryRepository.getGroceryList(id);
-        }
+        //[HttpGet("{id}", Name = "Get")]
+        //public GroceryList Get(int id)
+        //{
+        //    return _groceryRepository.getGroceryList(id);
+        //}
 
         // POST: api/GroceryList
         [HttpPost]

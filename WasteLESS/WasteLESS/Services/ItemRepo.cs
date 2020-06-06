@@ -28,6 +28,31 @@ namespace WasteLESS.Services
             IList<Item> all_items = _itemContext.Items.ToList();
             return all_items;
         }
-        
+
+        public IList<Item> getAllItemsExpiring()
+        {
+            IList<Item> all_items = _itemContext.Items.Where(x => x.ExpirationDate == DateTime.Today.AddDays(1)).ToList();
+            return all_items;
+        }
+
+        public int getItemsExpired()
+        {
+            int nr = _itemContext.Items.Count(x => x.ExpirationDate < DateTime.Today);
+            return nr;
+        }
+
+        public int getItemsExpiredBeforeConsumption()
+        {
+            int nr = _itemContext.Items.Count(x => x.ExpirationDate < DateTime.Today && x.ConsumptionDate < x.ExpirationDate);
+            return nr;
+        }
+
+        public int getItemsNr()
+        {
+            int nr = _itemContext.Items.Count();
+            return nr;
+        }
+
+
     }
 }

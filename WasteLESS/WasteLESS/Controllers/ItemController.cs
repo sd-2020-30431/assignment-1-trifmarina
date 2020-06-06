@@ -42,17 +42,22 @@ namespace WasteLESS.Controllers
             return NoContent();
         }
 
-        //// PUT: api/Item/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody] string value)
-        //{
-        //}
+        [HttpGet]
+        [Route("Report")]
+        public ItemReport GetReport()
+        {
+            ReportFactory factory;
+            factory = new ItemReportFactory();
 
-        //// DELETE: api/ApiWithActions/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
+            var itemRep = factory.CreateItemReport(_itemRepository.getItemsExpired(), _itemRepository.getItemsExpiredBeforeConsumption());
 
-        //}
+            itemRep.NrOfItems = _itemRepository.getItemsNr();
+
+            return itemRep;
+
+            
+        }
+
+       
     }
 }
